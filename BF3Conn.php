@@ -833,7 +833,7 @@ class BF3Conn {
 	 * @return Integer
 	 */
 	function getCurrentGameRound() {
-		return (int) $this->_array2String($this->getServerInfo(), 6);
+		return (int) $this->_array2String($this->getServerInfo(), 6)+1;
 	}
 
 	/**
@@ -847,6 +847,7 @@ class BF3Conn {
 
 	/**
 	 * returns the current teamscores
+	 * FFIXX doesn't work yet
 	 *
 	 * @return Integer
 	 */
@@ -856,6 +857,7 @@ class BF3Conn {
 
 	/**
 	 * returns the current online state of the gameserver
+	 * FFIXX doesn't work with the current bf3 server release
 	 *
 	 * @return String
 	 */
