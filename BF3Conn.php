@@ -1701,7 +1701,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSet3rdPersonVehiCam($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.thirdPersonVehicleCameras " .
+		return $this->_array2String($this->_clientRequest("vars.3pCam " .
 		$this->_bool2String($boolean)), 0);
 	}
 
@@ -1711,7 +1711,28 @@ class BF3Conn {
 	 * @return boolean
 	 */
 	function adminVarGet3rdPersonVehiCam() {
-		return $this->_array2boolean($this->_clientRequest("vars.thirdPersonVehicleCameras"));
+		return $this->_array2boolean($this->_clientRequest("vars.3pCam"));
+	}
+
+	/**
+	 * sets if all unlocks are available on/off<br /><br />
+	 *
+	 * @param boolean
+	 *
+	 * @return String
+	 */
+	function adminVarSetAllUnlocksUnlocked($boolean) {
+		return $this->_array2String($this->_clientRequest("vars.allUnlocksUnlocked " .
+		$this->_bool2String($boolean)), 0);
+	}
+
+	/**
+	 * gets true/false, if all unlocks are available or not
+	 *
+	 * @return boolean
+	 */
+	function adminVarGetAllUnlocksUnlocked() {
+		return $this->_array2boolean($this->_clientRequest("vars.allUnlocksUnlocked"));
 	}
 
 	/**
@@ -1722,7 +1743,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetTeambalance($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.teamBalance " .
+		return $this->_array2String($this->_clientRequest("vars.autoBalance " .
 		$this->_bool2String($boolean)), 0);
 	}
 
@@ -1732,7 +1753,7 @@ class BF3Conn {
 	 * @return boolean
 	 */
 	function adminVarGetTeambalance() {
-		return $this->_array2boolean($this->_clientRequest("vars.teamBalance"));
+		return $this->_array2boolean($this->_clientRequest("vars.autoBalance"));
 	}
 
 	/**
@@ -1755,6 +1776,26 @@ class BF3Conn {
 	 */
 	function adminVarGetBannerURL() {
 		return $this->_array2String($this->_clientRequest("vars.bannerUrl"));
+	}
+
+	/**
+	 * sets the bullet damage modifier in %
+	 *
+	 * @param $integer
+	 *
+	 * @return String
+	 */
+	function adminVarSetbulletDamageModifier($integer) {
+		return $this->_array2String($this->_clientRequest("vars.bulletDamage " . $integer), 0);
+	}
+
+	/**
+	 * gets the bullet damage modifier
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetbulletDamageModifier() {
+		return (int) $this->_array2String($this->_clientRequest("vars.bulletDamage"));
 	}
 
 	/**
@@ -1813,6 +1854,27 @@ class BF3Conn {
 	}
 
 	/**
+	 * sets hud on/off
+	 *
+	 * @param boolean
+	 *
+	 * @return String
+	 */
+	function adminVarSetHud($boolean) {
+		return $this->_array2String($this->_clientRequest("vars.hud " .
+		$this->_bool2String($boolean)), 0);
+	}
+
+	/**
+	 * gets true/false, if hud is enabled or not
+	 *
+	 * @return boolean
+	 */
+	function adminVarGetHud() {
+		return $this->_array2boolean($this->_clientRequest("vars.hud"));
+	}
+
+	/**
 	 * sets how many seconds a player can be idle before he/she is kicked from the server
 	 *
 	 * @param $idleTimeoutInteger
@@ -1830,6 +1892,27 @@ class BF3Conn {
 	 */
 	function adminVarGetIdleTimeout() {
 		return (int) $this->_array2String($this->_clientRequest("vars.idleTimeout " . $timeInSeconds));
+	}
+
+	/**
+	 * sets the number of rounds a player who is kicked for idle is banned
+	 * set to 0 to disable
+	 *
+	 * @param $idleBanRoundsInteger
+	 *
+	 * @return String
+	 */
+	function adminVarSetidleBanRounds($idleBanRoundsInteger) {
+		return $this->_array2String($this->_clientRequest("vars.idleBanRounds " . $idleBanRoundsInteger), 0);
+	}
+
+	/**
+	 * gets the number of rounds a player who is kicked for idle is banned
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetidleBanRounds() {
+		return (int) $this->_array2String($this->_clientRequest("vars.idleBanRounds"));
 	}
 
 	/**
@@ -1896,6 +1979,88 @@ class BF3Conn {
 	}
 
 	/**
+	 * sets nametag on/off
+	 *
+	 * @param boolean
+	 *
+	 * @return String
+	 */
+	function adminVarSetNameTag($boolean) {
+		return $this->_array2String($this->_clientRequest("vars.nameTag " .
+		$this->_bool2String($boolean)), 0);
+	}
+
+	/**
+	 * gets true/false, if nametag is enabled or not
+	 *
+	 * @return boolean
+	 */
+	function adminVarGetNameTag() {
+		return $this->_array2boolean($this->_clientRequest("vars.nameTag"));
+	}
+
+	/**
+	 * sets onlySquadLeaderSpawn on/off
+	 *
+	 * @param boolean
+	 *
+	 * @return String
+	 */
+	function adminVarSetOnlySquadLeaderSpawn($boolean) {
+		return $this->_array2String($this->_clientRequest("vars.onlySquadLeaderSpawn " .
+		$this->_bool2String($boolean)), 0);
+	}
+
+	/**
+	 * gets true/false, if onlySquadLeaderSpawn is enabled or not
+	 *
+	 * @return boolean
+	 */
+	function adminVarGetOnlySquadLeaderSpawn() {
+		return $this->_array2boolean($this->_clientRequest("vars.onlySquadLeaderSpawn"));
+	}
+
+	/**
+	 * sets the man down time modifier in %
+	 *
+	 * @param $integer
+	 *
+	 * @return String
+	 */
+	function adminVarSetPlayerManDownTimeModifier($integer) {
+		return $this->_array2String($this->_clientRequest("vars.playerManDownTime " . $integer), 0);
+	}
+
+	/**
+	 * gets the man down time modifier
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetPlayerManDownTimeModifier() {
+		return (int) $this->_array2String($this->_clientRequest("vars.playerManDownTime"));
+	}
+
+	/**
+	 * sets the respawn time modifier in %
+	 *
+	 * @param $integer
+	 *
+	 * @return String
+	 */
+	function adminVarSetPlayerRespawnTimeModifier($integer) {
+		return $this->_array2String($this->_clientRequest("vars.playerRespawnTime " . $integer), 0);
+	}
+
+	/**
+	 * gets the respawn time modifier
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetPlayerRespawnTimeModifier() {
+		return (int) $this->_array2String($this->_clientRequest("vars.playerRespawnTime"));
+	}
+
+	/**
 	 * gets true/false, if punkbuster is enabled or not
 	 * FFIXX Only works for Rush right now
 	 *
@@ -1917,6 +2082,67 @@ class BF3Conn {
 		$serverInfo = $this->getServerInfo();
 
 		return $this->_array2String($serverInfo, 15);
+	}
+
+	/**
+	 * sets health regeneration on/off
+	 *
+	 * @param boolean
+	 *
+	 * @return String
+	 */
+	function adminVarSetRegenerateHealth($boolean) {
+		return $this->_array2String($this->_clientRequest("vars.regenerateHealth " .
+		$this->_bool2String($boolean)), 0);
+	}
+
+	/**
+	 * gets true/false, if health regeneration is enabled or not
+	 *
+	 * @return boolean
+	 */
+	function adminVarGetRegenerateHealth() {
+		return $this->_array2boolean($this->_clientRequest("vars.regenerateHealth"));
+	}
+
+	/**
+	 * sets how many players are required to begin a round
+	 *
+	 * @param String
+	 *
+	 * @return String
+	 */
+	function adminVarSetRoundStartPlayerCount($string) {
+		return $this->_array2String($this->_clientRequest("vars.roundStartPlayerCount " . $string), 0);
+	}
+
+	/**
+	 * gets how many players are required to begin a round
+	 *
+	 * @return String
+	 */
+	function adminVarGetRoundStartPlayerCount() {
+		return $this->_array2String($this->_clientRequest("vars.roundStartPlayerCount"));
+	}
+
+	/**
+	 * sets at how many players the server switches to pre-round
+	 *
+	 * @param String
+	 *
+	 * @return String
+	 */
+	function adminVarSetRoundRestartPlayerCount($string) {
+		return $this->_array2String($this->_clientRequest("vars.roundRestartPlayerCount " . $string), 0);
+	}
+
+	/**
+	 * gets at how many players the server switches to pre-round
+	 *
+	 * @return String
+	 */
+	function adminVarGetRoundRestartPlayerCount() {
+		return $this->_array2String($this->_clientRequest("vars.roundRestartPlayerCount"));
 	}
 
 	/**
@@ -1951,6 +2177,26 @@ class BF3Conn {
 	 */
 	function adminVarSetServername($serverName) {
 		return $this->_array2String($this->_clientRequest("vars.serverName " . $serverName), 0);
+	}
+
+	/**
+	 * sets the soldier health modifier in %
+	 *
+	 * @param $soldierHealthInteger
+	 *
+	 * @return String
+	 */
+	function adminVarSetSoldierHealthModifier($integer) {
+		return $this->_array2String($this->_clientRequest("vars.soldierHealth " . $soldierHealthInteger), 0);
+	}
+
+	/**
+	 * gets the soldier health modifier
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetSoldierHealthModifier() {
+		return (int) $this->_array2String($this->_clientRequest("vars.soldierHealth"));
 	}
 
 	/**
@@ -2033,6 +2279,67 @@ class BF3Conn {
 	 */
 	function adminVarGetTeamKillValueDecreasePerSecond() {
 		return (int) $this->_array2String($this->_clientRequest("vars.teamKillValueDecreasePerSecond"));
+	}
+
+	/**
+	 * sets the number of teamkill-kicks allowed before the game bans the player in question
+	 *
+	 * @param $teamKillKickForBanInteger
+	 *
+	 * @return String
+	 */
+	function adminVarSetTeamKillKickForBan($teamKillKickForBanInteger) {
+		return $this->_array2String($this->_clientRequest("vars.teamKillKickForBan " . $teamKillKickForBanInteger), 0);
+	}
+
+	/**
+	 * gets the number of teamkill-kicks allowed
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetTeamKillKickForBan() {
+		return (int) $this->_array2String($this->_clientRequest("vars.teamKillKickForBan"));
+	}
+
+	/**
+	 * sets vehicle spawn on/off
+	 *
+	 * @param boolean
+	 *
+	 * @return String
+	 */
+	function adminVarSetVehicleSpawnAllowed($boolean) {
+		return $this->_array2String($this->_clientRequest("vars.vehicleSpawnAllowed " .
+		$this->_bool2String($boolean)), 0);
+	}
+
+	/**
+	 * gets true/false, if vehicle spawn is enabled or not
+	 *
+	 * @return boolean
+	 */
+	function adminVarGetVehicleSpawnAllowed() {
+		return $this->_array2boolean($this->_clientRequest("vars.vehicleSpawnAllowed"));
+	}
+
+	/**
+	 * sets the vehicle spawn modifier in %
+	 *
+	 * @param $vehicleSpawnDelayInteger
+	 *
+	 * @return String
+	 */
+	function adminVarSetVehicleSpawnDelayModifier($integer) {
+		return $this->_array2String($this->_clientRequest("vars.vehicleSpawnDelay " . $vehicleSpawnDelayInteger), 0);
+	}
+
+	/**
+	 * gets the soldier health modifier
+	 *
+	 * @return Integer
+	 */
+	function adminVarGetVehicleSpawnDelayModifier() {
+		return (int) $this->_array2String($this->_clientRequest("vars.vehicleSpawnDelay"));
 	}
 
 	// TODO: server moderation mode
