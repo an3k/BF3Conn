@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- powered by: BF3Conn - PHP class for communicating with a gameserver
+	     visit http://sf.net/p/bf3conn/ for updates, support & more! -->
+<playmodes>
+	<playmode uri="ConquestLarge0" name="Conquest Large" />
+	<playmode uri="ConquestSmall0" name="Conquest" />
+	<playmode uri="RushLarge0" name="Rush" />
+	<playmode uri="SquadRush0" name="Squad Rush" />
+	<playmode uri="SquadDeathMatch0" name="Squad DM" />
+	<playmode uri="TeamDeathMatch0" name="Team DM" />
+</playmodes>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- powered by: BF3Conn - PHP class for communicating with a gameserver
+	     visit http://sf.net/p/bf3conn/ for updates, support & more! -->
+<mapNames>
+	<!-- BATTLEFIELD 3 -->
+	<!-- ConquestLarge0, 9 maps -->
+	<map uri="MP_001" name="Grand Bazaar" playmode="ConquestLarge0" />
+	<map uri="MP_003" name="Teheran Highway" playmode="ConquestLarge0" />
+	<map uri="MP_007" name="Caspian Border" playmode="ConquestLarge0" />
+	<map uri="MP_011" name="Seine Crossing" playmode="ConquestLarge0" />
+	<map uri="MP_012" name="Operation Firestorm" playmode="ConquestLarge0" />
+	<map uri="MP_013" name="Damavand Peak" playmode="ConquestLarge0" />
+	<map uri="MP_017" name="Noshahar Canals" playmode="ConquestLarge0" />
+	<map uri="MP_018" name="Kharg Island" playmode="ConquestLarge0" />
+	<map uri="MP_Subway" name="Operation Metro" playmode="ConquestLarge0" />
+
+	<!-- ConquestSmall0, 9 maps -->
+	<map uri="MP_001" name="Grand Bazaar" playmode="ConquestSmall0" />
+	<map uri="MP_003" name="Teheran Highway" playmode="ConquestSmall0" />
+	<map uri="MP_007" name="Caspian Border" playmode="ConquestSmall0" />
+	<map uri="MP_011" name="Seine Crossing" playmode="ConquestSmall0" />
+	<map uri="MP_012" name="Operation Firestorm" playmode="ConquestSmall0" />
+	<map uri="MP_013" name="Damavand Peak" playmode="ConquestSmall0" />
+	<map uri="MP_017" name="Noshahar Canals" playmode="ConquestSmall0" />
+	<map uri="MP_018" name="Kharg Island" playmode="ConquestSmall0" />
+	<map uri="MP_Subway" name="Operation Metro" playmode="ConquestSmall0" />
+
+	<!-- RushLarge0, 9 maps -->
+	<map uri="MP_001" name="Grand Bazaar" playmode="RushLarge0" />
+	<map uri="MP_003" name="Teheran Highway" playmode="RushLarge0" />
+	<map uri="MP_007" name="Caspian Border" playmode="RushLarge0" />
+	<map uri="MP_011" name="Seine Crossing" playmode="RushLarge0" />
+	<map uri="MP_012" name="Operation Firestorm" playmode="RushLarge0" />
+	<map uri="MP_013" name="Damavand Peak" playmode="RushLarge0" />
+	<map uri="MP_017" name="Noshahar Canals" playmode="RushLarge0" />
+	<map uri="MP_018" name="Kharg Island" playmode="RushLarge0" />
+	<map uri="MP_Subway" name="Operation Metro" playmode="RushLarge0" />
+
+	<!-- SquadRush0, 9 maps -->
+	<map uri="MP_001" name="Grand Bazaar" playmode="SquadRush0" />
+	<map uri="MP_003" name="Teheran Highway" playmode="SquadRush0" />
+	<map uri="MP_007" name="Caspian Border" playmode="SquadRush0" />
+	<map uri="MP_011" name="Seine Crossing" playmode="SquadRush0" />
+	<map uri="MP_012" name="Operation Firestorm" playmode="SquadRush0" />
+	<map uri="MP_013" name="Damavand Peak" playmode="SquadRush0" />
+	<map uri="MP_017" name="Noshahar Canals" playmode="SquadRush0" />
+	<map uri="MP_018" name="Kharg Island" playmode="SquadRush0" />
+	<map uri="MP_Subway" name="Operation Metro" playmode="SquadRush0" />
+
+	<!-- SquadDeathMatch0, 9 maps -->
+	<map uri="MP_001" name="Grand Bazaar" playmode="SquadDeathMatch0" />
+	<map uri="MP_003" name="Teheran Highway" playmode="SquadDeathMatch0" />
+	<map uri="MP_007" name="Caspian Border" playmode="SquadDeathMatch0" />
+	<map uri="MP_011" name="Seine Crossing" playmode="SquadDeathMatch0" />
+	<map uri="MP_012" name="Operation Firestorm" playmode="SquadDeathMatch0" />
+	<map uri="MP_013" name="Damavand Peak" playmode="SquadDeathMatch0" />
+	<map uri="MP_017" name="Noshahar Canals" playmode="SquadDeathMatch0" />
+	<map uri="MP_018" name="Kharg Island" playmode="SquadDeathMatch0" />
+	<map uri="MP_Subway" name="Operation Metro" playmode="SquadDeathMatch0" />
+
+	<!-- TeamDeathMatch0, 9 maps -->
+	<map uri="MP_001" name="Grand Bazaar" playmode="TeamDeathMatch0" />
+	<map uri="MP_003" name="Teheran Highway" playmode="TeamDeathMatch0" />
+	<map uri="MP_007" name="Caspian Border" playmode="TeamDeathMatch0" />
+	<map uri="MP_011" name="Seine Crossing" playmode="TeamDeathMatch0" />
+	<map uri="MP_012" name="Operation Firestorm" playmode="TeamDeathMatch0" />
+	<map uri="MP_013" name="Damavand Peak" playmode="TeamDeathMatch0" />
+	<map uri="MP_017" name="Noshahar Canals" playmode="TeamDeathMatch0" />
+	<map uri="MP_018" name="Kharg Island" playmode="TeamDeathMatch0" />
+	<map uri="MP_Subway" name="Operation Metro" playmode="TeamDeathMatch0" />
+</mapNames>
