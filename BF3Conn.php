@@ -31,7 +31,7 @@
  * http://sf.net/p/bf3conn/support/
  *
  * @author an3k <an3k@users.sf.net>
- * @version 0.91a
+ * @version 0.91b
  *
  */
 class BF3Conn {
@@ -497,7 +497,7 @@ class BF3Conn {
 	}
 
 	private function _closeConnection() {
-		$this->_clientRequest("quit");
+//		$this->_clientRequest("quit");
 
 		if($this->_sockType == 1) {
 			socket_close($this->_sock);

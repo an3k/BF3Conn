@@ -1,2 +1,5 @@
+v0.91b (01.11.2011)
+* workaround for timeout error
+
 v0.91a (01.11.2011)
 * initial release
