@@ -1000,8 +1000,7 @@ class BF3Conn {
 	 * @return array
 	 */
 	//	function adminEventsEnabledStatusSet($boolean) {
-	//		return $this->_clientRequest("eventsEnabled " .
-	//		$this->_bool2String($boolean));
+	//		return $this->_clientRequest("eventsEnabled " . $this->_bool2String($boolean));
 	//	}
 
 	/**
@@ -1158,8 +1157,7 @@ class BF3Conn {
 			$playerName = "{%player%}" . " " . $playerName;
 		}
 
-		return $this->_array2String($this->_clientRequest("admin.yell " . $text . " " .
-		$durationInMS . " " . $playerName), 0);
+		return $this->_array2String($this->_clientRequest("admin.yell " . $text . " " . $durationInMS . " " . $playerName), 0);
 	}
 
 	/**
@@ -1180,8 +1178,7 @@ class BF3Conn {
 			$durationInMS == $this->_globalMsg['ADMIN_YELL_DURATION_MAX'];
 		}
 
-		return $this->_array2String($this->_clientRequest("admin.yell " . $text . " " .
-		$durationInMS . " {%team%} " . $teamID), 0);
+		return $this->_array2String($this->_clientRequest("admin.yell " . $text . " " . $durationInMS . " {%team%} " . $teamID), 0);
 	}
 
 	/**
@@ -1609,8 +1606,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminKillPlayer($playerName) {
-		return $this->_array2String($this->_clientRequest("admin.killPlayer " .
-		$playerName), 0);
+		return $this->_array2String($this->_clientRequest("admin.killPlayer " . $playerName), 0);
 	}
 
 	/**
@@ -1634,8 +1630,7 @@ class BF3Conn {
 			$newPlayerTeam = 1;
 		}
 
-		return $this->_array2String($this->_clientRequest("admin.movePlayer " .
-		$playerName . " " .	$newPlayerTeam . " 0 " . $forceKill), 0);
+		return $this->_array2String($this->_clientRequest("admin.movePlayer " . $playerName . " " .	$newPlayerTeam . " 0 " . $forceKill), 0);
 	}
 
 	/**
@@ -1657,8 +1652,7 @@ class BF3Conn {
 
 		$forceKill = $this->_bool2String($forceKill);
 
-		return $this->_array2String($this->_clientRequest("admin.movePlayer " .
-		$playerName . " " . $newTeamID . " " . $newSquadID . " " . $forceKill), 0);
+		return $this->_array2String($this->_clientRequest("admin.movePlayer " . $playerName . " " . $newTeamID . " " . $newSquadID . " " . $forceKill), 0);
 	}
 
 	/**
@@ -1682,8 +1676,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSet3dSpotting($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.3dSpotting " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.3dSpotting " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1703,8 +1696,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSet3rdPersonVehiCam($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.3pCam " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.3pCam " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1724,8 +1716,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetAllUnlocksUnlocked($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.allUnlocksUnlocked " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.allUnlocksUnlocked " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1745,8 +1736,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetTeambalance($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.autoBalance " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.autoBalance " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1808,8 +1798,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetCrosshair($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.crossHair " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.crossHair " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1829,8 +1818,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetFriendlyFire($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.friendlyFire " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.friendlyFire " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1863,8 +1851,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetHud($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.hud " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.hud " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1925,8 +1912,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetKillCam($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.killCam " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.killCam " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1946,8 +1932,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetMiniMap($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.miniMap " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.miniMap " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1967,8 +1952,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetMiniMapSpotting($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.miniMapSpotting " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.miniMapSpotting " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -1988,8 +1972,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetNameTag($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.nameTag " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.nameTag " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -2009,8 +1992,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetOnlySquadLeaderSpawn($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.onlySquadLeaderSpawn " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.onlySquadLeaderSpawn " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -2064,14 +2046,11 @@ class BF3Conn {
 
 	/**
 	 * gets true/false, if punkbuster is enabled or not
-	 * FFIXX Only works for Rush right now
 	 *
 	 * @return boolean
 	 */
 	function adminVarGetPunkbuster() {
-		$serverInfo = $this->getServerInfo();
-
-		return $this->_array2String($serverInfo, 16);
+		return $this->_array2boolean($this->_clientRequest("punkBuster.isActive"));
 	}
 
 	/**
@@ -2094,8 +2073,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetRegenerateHealth($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.regenerateHealth " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.regenerateHealth " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
@@ -2311,8 +2289,7 @@ class BF3Conn {
 	 * @return String
 	 */
 	function adminVarSetVehicleSpawnAllowed($boolean) {
-		return $this->_array2String($this->_clientRequest("vars.vehicleSpawnAllowed " .
-		$this->_bool2String($boolean)), 0);
+		return $this->_array2String($this->_clientRequest("vars.vehicleSpawnAllowed " . $this->_bool2String($boolean)), 0);
 	}
 
 	/**
