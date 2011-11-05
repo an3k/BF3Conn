@@ -633,7 +633,7 @@ class BF3Conn {
 
 	/**
 	 * returns the name of the given playmode<br /><br />
-	 * example: getPlaymodeName("RUSH")
+	 * example: getPlaymodeName("RushLarge0")
 	 *
 	 * @param String
 	 *
@@ -842,13 +842,32 @@ class BF3Conn {
 	}
 
 	/**
-	 * returns the current teamscores
-	 * FFIXX not yet implemented in BF3Conn
+	 * returns the current score/remaining tickets for teamID
 	 *
-	 * @return Integer
+	 * @param String (if not set, nothing will be listed)
+	 *
+	 * @return String
 	 */
-	function getTeamScores() {
-		return (int) $this->_array2String($this->getServerInfo(), 8);
+	function getTeamScore($teamID = null) {
+		$playMode = $this->getCurrentPlaymode();
+
+		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0" || $playMode == "TeamDeathMatch0") {
+			$team1Score = $this->_array2String($this->getServerInfo(), 9);
+			$team2Score = $this->_array2String($this->getServerInfo(), 10);
+		} else if($playMode == "RushLarge0" || $playMode == "SquadRush0") {
+			$team1Score = $this->_array2String($this->getServerInfo(), 8);
+			$team2Score = $this->_array2String($this->getServerInfo(), 9);
+		} else if($playMode == "SquadDeathMatch0") {
+			$team1Score = $this->_array2String($this->getServerInfo(), 9);
+			$team2Score = $this->_array2String($this->getServerInfo(), 10);
+			$team3Score = $this->_array2String($this->getServerInfo(), 11);
+			$team4Score = $this->_array2String($this->getServerInfo(), 12);
+		}
+
+		if (isset($teamID) && $teamID != '') {
+			$teamScore = ${'team'.$teamID.'Score'};
+
+		return $teamScore;
 	}
 
 	/**
@@ -859,16 +878,12 @@ class BF3Conn {
 	function getOnlineState() {
 		$playMode = $this->getCurrentPlaymode();
 
-		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0") {
+		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0" || $playMode == "TeamDeathMatch0") {
 			return $this->_array2String($this->getServerInfo(), 12);
-		} else if($playMode == "RushLarge0") {
-			return $this->_array2String($this->getServerInfo(), 10);
-		} else if($playMode == "SquadRush0") {
+		} else if($playMode == "RushLarge0" || $playMode == "SquadRush0") {
 			return $this->_array2String($this->getServerInfo(), 10);
 		} else if($playMode == "SquadDeathMatch0") {
 			return $this->_array2String($this->getServerInfo(), 14);
-		} else if($playMode == "TeamDeathMatch0") {
-			return $this->_array2String($this->getServerInfo(), 12);
 		}
 	}
 
@@ -1011,35 +1026,19 @@ class BF3Conn {
 	//	}
 
 	/**
-	 * returns the clantag of a given playername
-	 *
-	 * @param String
-	 *
-	 * @return String
-	 */
-	function getPlayerClantag($playerName) {
-		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
-			return $this->_globalMsg['PLAYER_NOT_FOUND'];
-		}
-
-		return $this->_array2String($playerInfo, 12);
-	}
-
-	/**
 	 * returns the playername of a given playername
 	 *
 	 * @param String
 	 *
 	 * @return String
 	 */
-	function getPlayername($playerName) {
+	function getPlayerName($playerName) {
 		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
+		if(!isset($playerInfo[9])) {
 			return $this->_globalMsg['PLAYER_NOT_FOUND'];
 		}
 
-		return $this->_array2String($playerInfo, 13);
+		return $this->_array2String($playerInfo, 10);
 	}
 
 	/**
@@ -1051,11 +1050,11 @@ class BF3Conn {
 	 */
 	function getPlayerTeamID($playerName) {
 		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
+		if(!isset($playerInfo[9])) {
 			return $this->_globalMsg['PLAYER_NOT_FOUND'];
 		}
 
-		return (int) $this->_array2String($playerInfo, 15);
+		return (int) $this->_array2String($playerInfo, 12);
 	}
 
 	/**
@@ -1067,11 +1066,11 @@ class BF3Conn {
 	 */
 	function getPlayerSquadID($playerName) {
 		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
+		if(!isset($playerInfo[9])) {
 			return $this->_globalMsg['PLAYER_NOT_FOUND'];
 		}
 
-		return (int) $this->_array2String($playerInfo, 16);
+		return (int) $this->_array2String($playerInfo, 13);
 	}
 
 	/**
@@ -1083,11 +1082,11 @@ class BF3Conn {
 	 */
 	function getPlayerKills($playerName) {
 		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
+		if(!isset($playerInfo[9])) {
 			return $this->_globalMsg['PLAYER_NOT_FOUND'];
 		}
 
-		return (int) $this->_array2String($playerInfo, 17);
+		return (int) $this->_array2String($playerInfo, 14);
 	}
 
 	/**
@@ -1099,11 +1098,11 @@ class BF3Conn {
 	 */
 	function getPlayerDeaths($playerName) {
 		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
+		if(!isset($playerInfo[9])) {
 			return $this->_globalMsg['PLAYER_NOT_FOUND'];
 		}
 
-		return (int) $this->_array2String($playerInfo, 18);
+		return (int) $this->_array2String($playerInfo, 15);
 	}
 
 	/**
@@ -1115,27 +1114,11 @@ class BF3Conn {
 	 */
 	function getPlayerScore($playerName) {
 		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
+		if(!isset($playerInfo[9])) {
 			return $this->_globalMsg['PLAYER_NOT_FOUND'];
 		}
 
-		return (int) $this->_array2String($playerInfo, 19);
-	}
-
-	/**
-	 * returns the ping of a given playername
-	 *
-	 * @param String
-	 *
-	 * @return Integer
-	 */
-	function getPlayerPing($playerName) {
-		$playerInfo = $this->getPlayerdata($playerName);
-		if(!isset($playerInfo[12])) {
-			return $this->_globalMsg['PLAYER_NOT_FOUND'];
-		}
-
-		return (int) $this->_array2String($playerInfo, 20);
+		return (int) $this->_array2String($playerInfo, 16);
 	}
 
 	/*-- admin commands --*/
@@ -1256,7 +1239,7 @@ class BF3Conn {
 
 	/**
 	 * sets a new playlist<br /><br />
-	 * example: adminSetPlaylist("SQDM") - for setting playmode to 'Squad Deathmatch'
+	 * example: adminSetPlaylist("SquadDeathMatch0") - for setting playmode to 'Squad Deathmatch'
 	 *
 	 * @param String
 	 *
@@ -2062,23 +2045,18 @@ class BF3Conn {
 
 	/**
 	 * gets true/false if ranked server settings are enabled or not
-	 * FFIXX Only works for Rush right now
 	 *
 	 * @return boolean
 	 */
 	function adminVarGetRanked() {
 		$playMode = $this->getCurrentPlaymode();
 
-		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0") {
+		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0" || $playMode == "TeamDeathMatch0") {
 			return $this->_array2String($this->getServerInfo(), 13);
-		} else if($playMode == "RushLarge0") {
-			return $this->_array2String($this->getServerInfo(), 11);
-		} else if($playMode == "SquadRush0") {
+		} else if($playMode == "RushLarge0" || $playMode == "SquadRush0") {
 			return $this->_array2String($this->getServerInfo(), 11);
 		} else if($playMode == "SquadDeathMatch0") {
 			return $this->_array2String($this->getServerInfo(), 15);
-		} else if($playMode == "TeamDeathMatch0") {
-			return $this->_array2String($this->getServerInfo(), 13);
 		}
 	}
 
