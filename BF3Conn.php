@@ -773,8 +773,6 @@ class BF3Conn {
 	 * @return String
 	 */
 	function getCurrentPlaymodeName() {
-		$serverInfo = $this->getServerInfo();
-
 		return $this->getPlaymodeName($this->getCurrentPlaymode());
 	}
 
@@ -795,8 +793,6 @@ class BF3Conn {
 	 * @return String
 	 */
 	function getCurrentMapName() {
-		$serverInfo = $this->getServerInfo();
-
 		return $this->getMapName($this->getCurrentMap());
 	}
 
@@ -847,7 +843,7 @@ class BF3Conn {
 
 	/**
 	 * returns the current teamscores
-	 * FFIXX doesn't work yet
+	 * FFIXX not yet implemented in BF3Conn
 	 *
 	 * @return Integer
 	 */
@@ -857,12 +853,23 @@ class BF3Conn {
 
 	/**
 	 * returns the current online state of the gameserver
-	 * FFIXX doesn't work with the current bf3 server release
 	 *
 	 * @return String
 	 */
 	function getOnlineState() {
-		return $this->_array2String($this->getServerInfo(), 9);
+		$playMode = $this->getCurrentPlaymode();
+
+		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0") {
+			return $this->_array2String($this->getServerInfo(), 12);
+		} else if($playMode == "RushLarge0") {
+			return $this->_array2String($this->getServerInfo(), 10);
+		} else if($playMode == "SquadRush0") {
+			return $this->_array2String($this->getServerInfo(), 10);
+		} else if($playMode == "SquadDeathMatch0") {
+			return $this->_array2String($this->getServerInfo(), 14);
+		} else if($playMode == "TeamDeathMatch0") {
+			return $this->_array2String($this->getServerInfo(), 12);
+		}
 	}
 
 	/**
@@ -2060,9 +2067,19 @@ class BF3Conn {
 	 * @return boolean
 	 */
 	function adminVarGetRanked() {
-		$serverInfo = $this->getServerInfo();
+		$playMode = $this->getCurrentPlaymode();
 
-		return $this->_array2String($serverInfo, 15);
+		if ($playMode == "ConquestLarge0" || $playMode == "ConquestSmall0") {
+			return $this->_array2String($this->getServerInfo(), 13);
+		} else if($playMode == "RushLarge0") {
+			return $this->_array2String($this->getServerInfo(), 11);
+		} else if($playMode == "SquadRush0") {
+			return $this->_array2String($this->getServerInfo(), 11);
+		} else if($playMode == "SquadDeathMatch0") {
+			return $this->_array2String($this->getServerInfo(), 15);
+		} else if($playMode == "TeamDeathMatch0") {
+			return $this->_array2String($this->getServerInfo(), 13);
+		}
 	}
 
 	/**
